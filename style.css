@@ -816,3 +816,420 @@ footer .container .content .social .logo:hover {
 footer .container .content .social p {
   font-weight: bold;
 }
+
+/* ========== WEATHER SECTION ========== */
+
+.weather {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.weather .container .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+  z-index: 5;
+}
+
+.weather .container .content h2 {
+  font: italic bold 3rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.weather .container .content p {
+  font: 500 1.1rem "Inter", sans-serif;
+  color: var(--gray);
+}
+
+/* ========== CARD HIỂN THỊ DỮ LIỆU ========== */
+
+.weather-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px;
+  padding: 2.5rem 3rem;
+  text-align: center;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  width: 400px;
+}
+
+.weather-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--white);
+}
+
+.weather-card .temp {
+  font: bold 4rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.weather-card .location {
+  font: bold 1.2rem "IBM Plex Sans", sans-serif;
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+
+.weather-card .info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.weather-card .info div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-card .info div span {
+  font: bold 1.1rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+}
+
+.weather-card .info div p {
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+/* ========== NỀN HIỆU ỨNG ========== */
+
+.weather::before,
+.weather::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.25;
+  animation: weatherShape 40s infinite linear;
+}
+
+.weather::before {
+  width: 300px;
+  height: 300px;
+  background-color: var(--white);
+  top: 10%;
+  left: 15%;
+}
+
+.weather::after {
+  width: 200px;
+  height: 200px;
+  background-color: var(--primary);
+  bottom: 10%;
+  right: 15%;
+}
+
+@keyframes weatherShape {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -40px) scale(1.2);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 768px) {
+  .weather .container {
+    padding: 2rem;
+  }
+
+  .weather-card {
+    width: 90%;
+    padding: 2rem;
+  }
+
+  .weather-card .temp {
+    font-size: 3rem;
+  }
+}
+/* ========== WEATHER SECTION ========== */
+/* ===== WEATHER INPUT - MATCH EXCHANGE BOX ===== */
+.weather .search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 10px 15px;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.weather .search-box:hover,
+.weather .search-box:focus-within {
+  border-color: rgba(168, 85, 247, 0.7);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+.weather .search-box input {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.weather .search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.weather .search-box button {
+  background: linear-gradient(135deg, #a855f7, #6b21a8);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.weather .search-box button:hover {
+  background: linear-gradient(135deg, #c084fc, #9333ea);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+/* CARD hiển thị dữ liệu */
+.weather-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 32px;
+  padding: 2.5rem 3rem;
+  width: 400px;
+  text-align: center;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--white);
+}
+
+.weather-card .field {
+  margin-bottom: 1rem;
+}
+
+.weather-card input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+  font-size: 1rem;
+  outline: none;
+  transition: 0.2s;
+}
+
+.weather-card input:focus {
+  border-color: var(--white);
+}
+
+.weather-card button {
+  cursor: pointer;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 16px;
+  border: 2px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  font: bold 1rem "IBM Plex Sans", sans-serif;
+  transition: 0.2s linear;
+}
+
+.weather-card button:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.weather-card .result {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: var(--gray);
+}
+
+
+
+/* Hiệu ứng nền ánh sáng nhẹ */
+.weather::before,
+.weather::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.2;
+  animation: weatherShape 40s infinite linear;
+}
+
+.weather::before {
+  width: 300px;
+  height: 300px;
+  background-color: var(--primary);
+  top: 10%;
+  left: 15%;
+}
+
+.weather::after {
+  width: 200px;
+  height: 200px;
+  background-color: var(--white);
+  bottom: 10%;
+  right: 15%;
+}
+
+@keyframes weatherShape {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, -30px) scale(1.1);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .weather-card {
+    width: 90%;
+    padding: 2rem;
+  }
+
+  .weather .search-box {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .weather .search-box input {
+    width: 100%;
+  }
+}
+
+
+/* EXCHANGE SECTION */
+.exchange {
+  position: relative;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(0, 0, 0, 0.2), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(255,255,255,0.08), transparent 70%),
+              #0f0f0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.exchange .container .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.exchange .container .content h2 {
+  font: italic bold 3rem "IBM Plex Sans", sans-serif;
+  color: var(--white);
+}
+
+.exchange-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+  padding: 2rem 2.5rem;
+  width: 380px;
+  text-align: center;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.exchange-box label {
+  display: block;
+  font-weight: 600;
+  color: #ffffffd9;
+  margin-bottom: 0.4rem;
+  text-align: left;
+}
+
+.exchange-box .field {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: var(--gray);
+}
+
+.exchange-box select,
+.exchange-box input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.exchange-box button {
+  width: 100%;
+  background: linear-gradient(90deg, #7e22ce, #a855f7);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+
+.exchange-box button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.exchange-box .result {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+.exchange-box select:focus,
+.exchange-box input:focus {
+  border-color: #a855f7; /* tím highlight */
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+}
